@@ -1,0 +1,60 @@
+
+
+	<ul>
+	{% for album in Artist.album_set.all %}
+		<h1>{{ album.Telefonas }}   {{ album.Email }}</h1>
+	{% endfor %}
+	</ul>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<table style="width:80%">
+  <tr>
+    <th>Artist</th>
+    <th>AlbumTitle</th>
+	<th>RecordingLabel</th>
+	<th>YearReleased</th>
+	<th>NumberofTracks</th>
+  </tr>
+  <tr>
+    <th><h1>{{ Artist.ArtistName }} </h1></th>
+	<th>
+
+		{% for album in Artist.album_set.all %}
+			<h1><a href="{% url 'polls:albumas' album.id %}">{{ album.AlbumTitle }}</a></h1>
+		{% endfor %}
+
+	</th>
+	<th>
+		{% for album in Artist.album_set.all %}
+			<h1>{{ album.RecordingLabel}}</h1>
+		{% endfor %}
+	</th>
+	<th>
+		
+		{% for album in Artist.album_set.all %}
+			<h1>{{ album.YearReleased }}</h1>
+		{% endfor %}
+		
+	</th>
+
+	<th>
+		
+		{% for album in Artist.album_set.all %}
+			<h1>{{ album.NumberofTracks }}</h1>
+		{% endfor %}
+		
+	</th>
+  </tr>
+</table> 
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<table style="width:80%">
+  <tr>
+  
+    <th>Birth Name</th>
+	<th>Birth Date</th>
+	  <th>Band</th>
+	<th>Instruments</th>
+  </tr>
+  <tr>
+
+	
+	<th>{{ Member.Birthname}}	</th>
+	<th>{{ Member.Born}}</th>
+	<th>{{ Member.RecordingArtistID }} </th>
+	<th>
+	{% for instruments in Member.instruments_set.all %}	
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+div.transbox {
+  margin: 0px;
+  background-color: #ffffff;
+  border: 2px solid black;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  opacity: 0.9;
+}
+
+div.transbox p {
+  margin: 0%;
+  font-weight: bold;
+  color: #000000;
+}
+</style>
+</head>
+<body>
+
+<div class="background">
+  <div class="transbox">
+    <p><li>{{ instruments.Instrument }}  	</li></p>
+  </div>
+</div>
+
+</body>
+</html>
+	
+	
+	
+	{% endfor %}
+	</th>
+
+  </tr>
+</table>
+
+

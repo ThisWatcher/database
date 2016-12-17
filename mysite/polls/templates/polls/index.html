@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<table style="width:80%">
+  <tr>
+	<th>ID</th>
+    <th>Artist</th>
+	<th>Members</th>
+	<th>Albums</th>
+	<th>Singles</th>
+  </tr>
+{% for Artist in latest_Artist_list %}
+  <tr>
+	<th>{{ Artist.id }}</th>
+    <th><a href="{% url 'polls:detail' Artist.id %}">{{ Artist.ArtistName }}</a></th>
+	<th>
+	{% for members in Artist.members_set.all %}
+	
+	<li><a href="{% url 'polls:members' members.id %}">{{ members.Birthname}}</a> </li>
+	
+	{% endfor %}
+	</th>
+	<th>
+	{% for album in Artist.album_set.all %}
+		<li><a href="{% url 'polls:albumas' album.id %}">{{ album.AlbumTitle}}</a> </li>
+
+	{% endfor %}
+	</th>
+	<th>
+	{% for singles in Artist.singles_set.all %}
+		<li><a href="{% url 'polls:single' singles.id %}">{{ singles.Single}}</a></li>
+
+	{% endfor %}
+	
+	</th>	
+</ul>
+  </tr> 
+{% endfor %}
+</table> 
+
+
+
+

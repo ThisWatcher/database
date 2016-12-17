@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<table style="width:80%">
+  <tr>
+	<th>Artist</th>
+	<th>Album</th>
+	<th>Startdate</th>
+	<th>Enddate</th>
+	<th>RecordingLabel</th>
+	<th>YearReleased</th>
+	<th>NumberofTracks</th>
+    <th>Track Number</th>
+	<th>Track Title</th>
+	<th>Track Lenght</th>
+	<th>Genre</th>
+	
+  </tr>
+  <tr>
+	<th>{{ Album.RecordingArtistID }}</th>
+	<th>{{ Album.AlbumTitle }}</th>
+	<th>{{ Album.recorded.Startdate}}</th>
+	<th>{{ Album.recorded.Enddate}}</th>
+	<th>{{Album.RecordingLabel}}</th>
+	<th>{{ Album.YearReleased }}</th>
+	<th>{{ Album.NumberofTracks }}</th>
+	
+
+	<th>
+	
+	
+		{% for albumtracks in Album.albumtracks_set.all %}
+			<p>{{ albumtracks.TrackNumber }}</p>
+		{% endfor %}
+	</th>
+    <th>
+		{% for albumtracks in Album.albumtracks_set.all %}
+			<p>{{ albumtracks.TrackTitle }}</p>
+		{% endfor %}
+	</th>
+    <th>
+		{% for albumtracks in Album.albumtracks_set.all %}
+			<p>{{ albumtracks.TrackLenght }}</p>
+		{% endfor %}
+	</th>
+	<th>
+		{% for albumgenre in Album.albumgenre_set.all %}
+			<p>{{ albumgenre.Genre }}</p>
+		{% endfor %}
+	</th>
+
+  </tr> 
+</table> 
+
+
+
+

@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<table style="width:80%">
+  <tr>
+	<th>Album</th>
+    <th>Track Number</th>
+	<th>Track Title</th>
+	<th>Track Lenght</th>
+  </tr>
+  <tr>
+	<td><h1>{{ Album.AlbumTitle }}</h1></td>
+    <td>
+		<ul>
+		{% for albumtracks in Album.albumtracks_set.all %}
+			<h1>{{ albumtracks.TrackNumber }}</h1>
+		{% endfor %}
+		</ul>
+	</td>
+    <td>
+		<ul>
+		{% for albumtracks in Album.albumtracks_set.all %}
+			<h1>{{ albumtracks.TrackTitle }}</h1>
+		{% endfor %}
+		</ul>
+	</td>
+    <td>
+		<ul>
+		{% for albumtracks in Album.albumtracks_set.all %}
+			<h1>{{ albumtracks.TrackLenght }}</h1>
+		{% endfor %}
+		</ul>
+	</td>
+</ul>
+  </tr> 
+</table> 
+Album.Title
